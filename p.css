@@ -1,3 +1,76 @@
+/* Profile Bio and About Highlights */
+.profile-bio {
+  color: #bfc9d1;
+  font-size: 1.05rem;
+  margin: 0 0 8px 0;
+  text-align: center;
+  line-height: 1.6;
+  background: linear-gradient(90deg, #23292e 60%, #23272f 100%);
+  border-radius: 8px;
+  padding: 8px 12px;
+  box-shadow: 0 2px 8px #00e6d022;
+}
+.about-highlights {
+  margin: 12px 0 18px 0;
+  padding: 0 0 0 18px;
+  color: #00e6d0;
+  font-size: 1.01rem;
+  list-style: disc inside;
+  line-height: 1.7;
+}
+.about-highlights b {
+  color: #fff;
+}
+
+/* Resume Skills List */
+.skills-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 18px;
+  margin: 10px 0 18px 0;
+  padding: 0;
+  list-style: none;
+}
+.skills-list li {
+  background: #23292e;
+  color: #00e6d0;
+  border-radius: 8px;
+  padding: 6px 16px;
+  font-weight: 600;
+  font-size: 1rem;
+  box-shadow: 0 1px 4px #00e6d022;
+  transition: background 0.2s, color 0.2s, transform 0.2s;
+}
+.skills-list li:hover {
+  background: #00e6d0;
+  color: #23292e;
+  transform: scale(1.08) rotate(-2deg);
+}
+
+/* Contact CTA Button */
+.contact-cta {
+  background: linear-gradient(90deg, #00e6d0 60%, #00b3a4 100%);
+  color: #23292e;
+  border: none;
+  border-radius: 10px;
+  padding: 10px 28px;
+  font-size: 1.08rem;
+  font-weight: 700;
+  box-shadow: 0 2px 12px #00e6d044;
+  letter-spacing: 0.5px;
+  cursor: pointer;
+  transition: background 0.3s, color 0.2s, transform 0.2s;
+  position: relative;
+  z-index: 2;
+  overflow: hidden;
+  margin-left: 8px;
+}
+.contact-cta:hover {
+  background: linear-gradient(90deg, #00b3a4 60%, #00e6d0 100%);
+  color: #fff;
+  transform: scale(1.06) translateY(-2px) rotate(-2deg);
+  box-shadow: 0 8px 32px #00e6d044;
+}
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap');
 
 :root {
@@ -609,3 +682,78 @@ header {
 .blogs-section {
   box-shadow: 0 4px 24px rgba(0, 0, 0, 0.18);
 }
+/* Download Dropdown Custom Animation and Design */
+.download-dropdown {
+  position: relative;
+  display: inline-block;
+  transition: transform 0.3s cubic-bezier(.4,2,.6,1);
+}
+.download-dropdown .download-btn {
+  background: linear-gradient(90deg, #00e6d0 60%, #00b3a4 100%);
+  color: #23292e;
+  border: none;
+  border-radius: 10px;
+  padding: 10px 28px;
+  font-size: 1.08rem;
+  font-weight: 700;
+  box-shadow: 0 2px 12px #00e6d044;
+  letter-spacing: 0.5px;
+  cursor: pointer;
+  transition: background 0.3s, color 0.2s, transform 0.2s;
+  position: relative;
+  z-index: 2;
+  overflow: hidden;
+}
+.download-dropdown .download-btn:hover {
+  background: linear-gradient(90deg, #00b3a4 60%, #00e6d0 100%);
+  color: #fff;
+  transform: scale(1.06) translateY(-2px) rotate(-2deg);
+  box-shadow: 0 8px 32px #00e6d044;
+}
+.download-dropdown .dropdown-content {
+  display: none;
+  position: absolute;
+  left: 0;
+  top: 110%;
+  background: #fff;
+  min-width: 180px;
+  box-shadow: 0 8px 32px #00e6d044, 0 2px 8px #00e6d022;
+  z-index: 10;
+  border-radius: 12px;
+  overflow: hidden;
+  animation: dropdownFadeIn 0.5s cubic-bezier(.4,2,.6,1);
+}
+.download-dropdown:hover .dropdown-content,
+.download-dropdown:focus-within .dropdown-content {
+  display: block;
+}
+.download-dropdown .dropdown-content a {
+  color: #23292e;
+  padding: 16px 22px;
+  text-decoration: none;
+  display: block;
+  font-weight: 600;
+  font-size: 1.05rem;
+  background: linear-gradient(90deg, #f0f0f0 80%, #e6e6e6 100%);
+  border-bottom: 1px solid #e6e6e6;
+  transition: background 0.25s, color 0.2s, transform 0.2s;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: dropdownLinkFadeIn 0.5s forwards;
+}
+.download-dropdown .dropdown-content a:nth-child(1) { animation-delay: 0.1s; }
+.download-dropdown .dropdown-content a:nth-child(2) { animation-delay: 0.2s; }
+.download-dropdown .dropdown-content a:last-child { border-bottom: none; }
+.download-dropdown .dropdown-content a:hover {
+  background: linear-gradient(90deg, #00e6d0 60%, #00b3a4 100%);
+  color: #fff;
+  transform: scale(1.04) translateX(6px);
+}
+@keyframes dropdownFadeIn {
+  from { opacity: 0; transform: translateY(30px) scale(0.98); }
+  to { opacity: 1; transform: none; }
+}
+@keyframes dropdownLinkFadeIn {
+  to { opacity: 1; transform: none; }
+}
+

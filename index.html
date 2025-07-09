@@ -25,8 +25,9 @@
           </div>
           <div class="profile-info">
             <img class="avatar" src="me.jfif" alt="Avatar">
-            <h2>Jolad Romero </h2>
-            <p class="role">Full-Stack Web Developer</p>
+            <h2>Jolad Romero <span style="font-size:1.2rem;color:#00e6d0;">🌟</span></h2>
+            <p class="role">ALL ROUNDER</p>
+            <p class="profile-bio">Creative, passionate, and always learning. I love building things that make life easier and more beautiful. <br><span style="color:#00e6d0;">Let's create something amazing together!</span></p>
             <div class="social-links">
               <a href="https://github.com/Kuzumato" title="GitHub" aria-label="GitHub"><img src="ghithub.png" alt="GitHub"></a>
               <a href="#" title="Facebook"><img src="fb.png" alt="Facebook"></a>
@@ -35,8 +36,14 @@
             </div>
           </div>
           <div class="profile-actions">
-            <a href="PDS_Form.xlsx" download class="download-btn">Download Resume</a>
-            <button>Contact Me</button>
+            <div class="download-dropdown">
+              <button class="download-btn">Download Resume</button>
+              <div class="dropdown-content">
+                <a href="PDS_Form.xlsx" download>Goverment-Resume</a>
+                <a href="#" download>Modern-Resume</a>
+              </div>
+            </div>
+            <button class="contact-cta" onclick="showSection('contact')"><span>✉️</span> Contact Me</button>
           </div>
         </section>
       </div>
@@ -45,12 +52,16 @@
         <section class="about-section section-content" id="about-section">
           <h3>Hey there! 👋</h3>
           <p>
-            I'm thrilled to tell you a bit about myself. I have over six years of IT experience, specializing in <span class="highlight">PHP, Database Development, and open-source frameworks</span>. If you're in need of a motivated team player, let's connect!
+            I'm passionate about technology, specializing in <span class="highlight">HTML, CSS, JS, and Hardware & Software System Servicing</span>. If you're looking for someone with hands-on skills and a drive to learn, let's connect!
           </p>
+          <ul class="about-highlights">
+            <li><b>Strengths:</b> Fast learner, creative problem solver, team player, detail-oriented</li>
+            <li><b>Interests:</b> UI/UX Design, Automation, Open Source, Tech Communities</li>
+            <li><b>Hobbies:</b> Gaming, Music, DIY Electronics, Blogging</li>
+          </ul>
           <div class="stats">
-            <div class="stat"><span>2K+</span><br>Website Designed</div>
-            <div class="stat"><span>5+</span><br>Years of Experience</div>
-            <div class="stat"><span>4K</span><br>Completed Projects</div>
+            <div class="stat"><span>2</span><br>Website Designed</div>
+            <div class="stat"><span>2</span><br>Project Completed</div>
           </div>
         </section>
         <!-- RESUME SECTION -->
@@ -59,8 +70,10 @@
           <div class="resume-scroll">
             <h4>Education</h4>
             <ul>
-              <li><strong>BSc in Computer Science</strong> - Tech University (2015-2019)</li>
-              <li><strong>Web Development Bootcamp</strong> - Code Academy (2019)</li>
+              <li><strong>Rizwoods Colleges</strong> - I.C.T. (Information Communication Technology) - 2 Years Junior & Senior High (Kto12 Program)</li>
+              <li><strong>D.M.D.P (Dept. of Manpower Development and Placement)</strong> - C.S.S (Computer System Servicing) - 2 Years</li>
+              <li><strong>Self-taught</strong> - HTML, CSS, JS (Mostly Coding) - 6 Months (Coursera, YouTube, GitHub, Online Forum)</li>
+              <li><strong>Continuous Learning</strong> - Participating in online hackathons, tech webinars, and coding challenges</li>
             </ul>
             <h4>Experience</h4>
             <ul>
@@ -72,13 +85,32 @@
                 <strong>Full-Stack Developer</strong> - DevStudio (2019-2022)
                 <br><span>Built and maintained client websites, REST APIs, and e-commerce solutions.</span>
               </li>
+              <li>
+                <strong>Freelancer</strong> - Various Clients (2020-Present)
+                <br><span>Designed landing pages, fixed bugs, and provided tech support for small businesses and individuals.</span>
+              </li>
             </ul>
             <h4>Skills</h4>
-            <p>PHP, JavaScript, React, Node.js, MySQL, PostgreSQL, Docker, Git, Agile, REST APIs</p>
+            <ul class="skills-list">
+              <li>PHP</li>
+              <li>JavaScript</li>
+              <li>React</li>
+              <li>Node.js</li>
+              <li>MySQL</li>
+              <li>PostgreSQL</li>
+              <li>Docker</li>
+              <li>Git</li>
+              <li>Agile</li>
+              <li>REST APIs</li>
+              <li>UI/UX Design</li>
+              <li>WordPress</li>
+            </ul>
             <h4>Certifications</h4>
             <ul>
               <li>Certified PHP Developer</li>
               <li>AWS Certified Cloud Practitioner</li>
+              <li>Responsive Web Design (freeCodeCamp)</li>
+              <li>JavaScript Algorithms and Data Structures (freeCodeCamp)</li>
             </ul>
           </div>
         </section>
@@ -127,25 +159,29 @@
         <section class="skills-section" id="skills-section">
           <h3>My <span class="highlight">Skills</span></h3>
           <div class="skills-grid">
-            <div class="skill-card">HTML5</div>
-            <div class="skill-card">CSS</div>
-            <div class="skill-card">React</div>
-            <div class="skill-card">Python</div>
             <div class="skill-progress">
-              <label>MySQL</label>
-              <div class="progress-bar"><div style="width:65%"></div></div>
+              <label>HTML</label>
+              <div class="progress-bar"><div style="width:60%"></div></div>
             </div>
             <div class="skill-progress">
-              <label>MySQL</label>
-              <div class="progress-bar"><div style="width:85%"></div></div>
+              <label>CSS</label>
+              <div class="progress-bar"><div style="width:30%"></div></div>
             </div>
             <div class="skill-progress">
-              <label>Node.js</label>
-              <div class="progress-bar"><div style="width:90%"></div></div>
+              <label>JavaScript</label>
+              <div class="progress-bar"><div style="width:10%"></div></div>
             </div>
             <div class="skill-progress">
-              <label>PostgreSQL</label>
-              <div class="progress-bar"><div style="width:75%"></div></div>
+              <label>Python</label>
+              <div class="progress-bar"><div style="width:10%"></div></div>
+            </div>
+            <div class="skill-progress">
+              <label>UI/UX Design</label>
+              <div class="progress-bar"><div style="width:25%"></div></div>
+            </div>
+            <div class="skill-progress">
+              <label>WordPress</label>
+              <div class="progress-bar"><div style="width:40%"></div></div>
             </div>
           </div>
         </section>
