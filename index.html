@@ -1,3 +1,33 @@
+        <!-- Modal for Enlarged Award Image -->
+        <div id="award-modal" class="award-modal" style="display:none;">
+          <span class="award-modal-close" id="award-modal-close">&times;</span>
+          <img class="award-modal-img" id="award-modal-img" src="" alt="Award Image">
+          <div class="award-modal-caption" id="award-modal-caption"></div>
+        </div>
+  <script>
+    // Award Modal Functionality
+    document.addEventListener('DOMContentLoaded', function() {
+      document.querySelectorAll('.award-item').forEach(function(item) {
+        item.addEventListener('click', function() {
+          var img = item.querySelector('.award-img');
+          var label = item.querySelector('.award-label').textContent;
+          var modal = document.getElementById('award-modal');
+          var modalImg = document.getElementById('award-modal-img');
+          var modalCaption = document.getElementById('award-modal-caption');
+          modal.style.display = 'flex';
+          modalImg.src = img.src;
+          modalImg.alt = img.alt;
+          modalCaption.textContent = label;
+        });
+      });
+      document.getElementById('award-modal-close').onclick = function() {
+        document.getElementById('award-modal').style.display = 'none';
+      };
+      document.getElementById('award-modal').onclick = function(e) {
+        if (e.target === this) this.style.display = 'none';
+      };
+    });
+  </script>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -13,7 +43,7 @@
         <button class="sidebar-btn active" onclick="showSection('about')">ABOUT</button>
         <button class="sidebar-btn" onclick="showSection('resume')">RESUME</button>
         <button class="sidebar-btn" onclick="showSection('projects')">PROJECTS</button>
-        <button class="sidebar-btn" onclick="showSection('blogs')">BLOGS</button>
+        <button class="sidebar-btn" onclick="showSection('awards')">AWARDS</button>
         <button class="sidebar-btn" onclick="showSection('contact')">CONTACT</button>
       </div>
     </aside>
@@ -21,7 +51,7 @@
       <div class="left-panel">
         <section class="profile-section">
           <div class="profile-img">
-            <img src="LOGO.png" alt="Profile Image">
+            <img src="logos/LOGO.png" alt="Profile Image">
           </div>
           <div class="profile-info">
             <img class="avatar" src="me.jfif" alt="Avatar">
@@ -29,10 +59,10 @@
             <p class="role">ALL ROUNDER</p>
             <p class="profile-bio">Creative, passionate, and always learning. I love building things that make life easier and more beautiful. <br><span style="color:#00e6d0;">Let's create something amazing together!</span></p>
             <div class="social-links">
-              <a href="https://github.com/Kuzumato" title="GitHub" aria-label="GitHub"><img src="ghithub.png" alt="GitHub"></a>
-              <a href="#" title="Facebook"><img src="fb.png" alt="Facebook"></a>
-              <a href="#" title="Instagram"><img src="insta.jpg" alt="Instagram"></a>
-              <a href="https://www.linkedin.com/in/jolad-romero-84633823a/" title="LinkedIn"><img src="linken.png" alt="LinkedIn"></a>
+              <a href="https://github.com/Kuzumato" title="GitHub" aria-label="GitHub"><img src="media/ghithub.png" alt="GitHub"></a>
+              <a href="#" title="Facebook"><img src="media/fb.png" alt="Facebook"></a>
+              <a href="#" title="Instagram"><img src="media/insta.jpg" alt="Instagram"></a>
+              <a href="https://www.linkedin.com/in/jolad-romero-84633823a/" title="LinkedIn"><img src="media/linken.png" alt="LinkedIn"></a>
             </div>
           </div>
           <div class="profile-actions">
@@ -41,6 +71,7 @@
               <div class="dropdown-content">
                 <a href="PDS_Form.xlsx" download>Goverment-Resume</a>
                 <a href="#" download>Modern-Resume</a>
+                <A href="APPLIACATION LETTER.docx" download>Application Letter</A>
               </div>
             </div>
             <button class="contact-cta" onclick="showSection('contact')"><span>✉️</span> Contact Me</button>
@@ -66,7 +97,7 @@
         </section>
         <!-- RESUME SECTION -->
         <section class="resume-section section-content" id="resume-section" style="display:none;">
-          <h3>Resume</h3>
+          <h3> Summary Resume </h3>
           <div class="resume-scroll">
             <h4>Education</h4>
             <ul>
@@ -185,37 +216,37 @@
             </div>
           </div>
         </section>
-        <!-- BLOGS SECTION -->
-        <section class="blogs-section section-content" id="blogs-section" style="display:none;">
-          <h3>Latest Blog Posts</h3>
-          <div class="blogs-scroll">
-            <div class="blog-card">
-              <div class="blog-header">
-                <img src="blog1.jpg" alt="Blog Cover" class="blog-cover">
-                <div>
-                  <h4>How to Build a Modern Portfolio Website</h4>
-                  <div class="blog-meta">June 2025 &bull; Web Development &bull; <span class="blog-author">by Jolad Romero</span></div>
-                </div>
-              </div>
-              <p>Step-by-step guide to creating a responsive, interactive portfolio using HTML, CSS, and JavaScript. Includes tips for design and deployment.</p>
-              <div class="blog-tags">
-                <span>HTML</span><span>CSS</span><span>JavaScript</span>
-              </div>
-              <a href="#" class="blog-link" target="_blank">Read More</a>
+        <!-- AWARDS SECTION -->
+        <section class="awards-section section-content" id="awards-section" style="display:none;">
+          <h3>My Awards</h3>
+          <div class="awards-gallery">
+            <div class="award-item">
+              <span class="award-label">D.M.D.P AWARD GIVEN</span>
+              <img class="award-img" src="Awards/Award Given.jpg" alt="Award Given">
             </div>
-            <div class="blog-card">
-              <div class="blog-header">
-                <img src="blog.png" alt="Blog Cover" class="blog-cover">
-                <div>
-                  <h4>Mastering React for Beginners</h4>
-                  <div class="blog-meta">May 2025 &bull; JavaScript &bull; <span class="blog-author">by Jolad Romero</span></div>
-                </div>
-              </div>
-              <p>Learn the basics of React, including components, state, props, and hooks, with practical examples and best practices.</p>
-              <div class="blog-tags">
-                <span>React</span><span>Hooks</span><span>Beginner</span>
-              </div>
-              <a href="#" class="blog-link" target="_blank">Read More</a>
+            <div class="award-item">
+              <span class="award-label">C.O.E EPERFORMAX</span>
+              <img class="award-img" src="Awards/COE Eperformax.jpg" alt="COE Eperformax">
+            </div>
+            <div class="award-item">
+              <span class="award-label">C.O.E NEW VENTURE SHELL</span>
+              <img class="award-img" src="Awards/COE New Venture Shell.jpg" alt="COE New Venture Shell">
+            </div>
+            <div class="award-item">
+              <span class="award-label">INTERNATIONAL CERTIFICATE </span>
+              <img class="award-img" src="Awards/INC2.jpg" alt="INC2">
+            </div>
+            <div class="award-item">
+              <span class="award-label">NATIONAL CERTIFICATE</span>
+              <img class="award-img" src="Awards/NC 2.jpg" alt="NC 2">
+            </div>
+            <div class="award-item">
+              <span class="award-label">S&R AWARD GIVEN</span>
+              <img class="award-img" src="Awards/S&R Award.jpg" alt="S&R Award">
+            </div>
+            <div class="award-item">
+              <span class="award-label">T.O.R D.M.D.P</span>
+              <img class="award-img" src="Awards/TOR dmdp.jpg" alt="TOR dmdp">
             </div>
           </div>
         </section>
@@ -225,7 +256,7 @@
   <script>
     // Simple section switching
     function showSection(section) {
-      const sections = ['about', 'resume', 'projects', 'blogs', 'contact'];
+      const sections = ['about', 'resume', 'projects', 'awards', 'contact'];
       sections.forEach(s => {
         const el = document.getElementById(s + '-section');
         if (el) {
