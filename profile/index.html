@@ -1,0 +1,300 @@
+        <!-- Modal for Enlarged Award Image -->
+        <div id="award-modal" class="award-modal" style="display:none;">
+          <span class="award-modal-close" id="award-modal-close">&times;</span>
+          <img class="award-modal-img" id="award-modal-img" src="" alt="Award Image">
+          <div class="award-modal-caption" id="award-modal-caption"></div>
+        </div>
+  <script>
+    // Award Modal Functionality
+    document.addEventListener('DOMContentLoaded', function() {
+      document.querySelectorAll('.award-item').forEach(function(item) {
+        item.addEventListener('click', function() {
+          var img = item.querySelector('.award-img');
+          var label = item.querySelector('.award-label').textContent;
+          var modal = document.getElementById('award-modal');
+          var modalImg = document.getElementById('award-modal-img');
+          var modalCaption = document.getElementById('award-modal-caption');
+          modal.style.display = 'flex';
+          modalImg.src = img.src;
+          modalImg.alt = img.alt;
+          modalCaption.textContent = label;
+        });
+      });
+      document.getElementById('award-modal-close').onclick = function() {
+        document.getElementById('award-modal').style.display = 'none';
+      };
+      document.getElementById('award-modal').onclick = function(e) {
+        if (e.target === this) this.style.display = 'none';
+      };
+    });
+  </script>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>🙋‍♂️Jolad Romero Profile</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="p.css">
+</head>
+<body>
+  <div class="container">
+    <aside class="sidebar">
+      <div class="sidebar-menu">
+        <button class="sidebar-btn active" onclick="showSection('about')">ABOUT</button>
+        <button class="sidebar-btn" onclick="showSection('resume')">RESUME</button>
+        <button class="sidebar-btn" onclick="showSection('projects')">PROJECTS</button>
+        <button class="sidebar-btn" onclick="showSection('awards')">AWARDS</button>
+        <button class="sidebar-btn" onclick="showSection('contact')">CONTACT</button>
+      </div>
+    </aside>
+    <main class="main-area">
+      <div class="left-panel">
+        <section class="profile-section">
+          <div class="profile-img">
+            <img src="logos/LOGO.png" alt="Profile Image">
+          </div>
+          <div class="profile-info">
+            <img class="avatar" src="me.jfif" alt="Avatar">
+            <h2>Jolad Romero <span style="font-size:1.2rem;color:#00e6d0;">🌟</span></h2>
+            <p class="role">ALL ROUNDER</p>
+            <p class="profile-bio">Creative, passionate, and always learning. I love building things that make life easier and more beautiful. <br><span style="color:#00e6d0;">Let's create something amazing together!</span></p>
+            <div class="social-links">
+              <a href="https://github.com/Kuzumato" title="GitHub" aria-label="GitHub"><img src="media/ghithub.png" alt="GitHub"></a>
+              <a href="#" title="Facebook"><img src="media/fb.png" alt="Facebook"></a>
+              <a href="#" title="Instagram"><img src="media/insta.jpg" alt="Instagram"></a>
+              <a href="https://www.linkedin.com/in/jolad-romero-84633823a/" title="LinkedIn"><img src="media/linken.png" alt="LinkedIn"></a>
+            </div>
+          </div>
+          <div class="profile-actions">
+            <div class="download-dropdown">
+              <button class="download-btn">Download Resume</button>
+              <div class="dropdown-content">
+                <a href="PDS_Form.xlsx" download>Goverment-Resume</a>
+                <a href="#" download>Modern-Resume</a>
+                <A href="APPLIACATION LETTER.docx" download>Application Letter</A>
+              </div>
+            </div>
+            <button class="contact-cta" onclick="showSection('contact')"><span>✉️</span> Contact Me</button>
+          </div>
+        </section>
+      </div>
+      <div class="right-panel">
+        <!-- ABOUT SECTION -->
+        <section class="about-section section-content" id="about-section">
+          <h3>Hey there! 👋</h3>
+          <p>
+            I'm passionate about technology, specializing in <span class="highlight">HTML, CSS, JS, and Hardware & Software System Servicing</span>. If you're looking for someone with hands-on skills and a drive to learn, let's connect!
+          </p>
+          <ul class="about-highlights">
+            <li><b>Strengths:</b> Fast learner, creative problem solver, team player, detail-oriented</li>
+            <li><b>Interests:</b> UI/UX Design, Automation, Open Source, Tech Communities</li>
+            <li><b>Hobbies:</b> Gaming, Music, DIY Electronics, Blogging</li>
+          </ul>
+          <div class="stats">
+            <div class="stat"><span>2</span><br>Website Designed</div>
+            <div class="stat"><span>2</span><br>Project Completed</div>
+          </div>
+        </section>
+        <!-- RESUME SECTION -->
+        <section class="resume-section section-content" id="resume-section" style="display:none;">
+          <h3> Summary Resume </h3>
+          <div class="resume-scroll">
+            <h4>Education</h4>
+            <ul>
+              <li><strong>Rizwoods Colleges</strong> - I.C.T. (Information Communication Technology) - 2 Years Junior & Senior High (Kto12 Program)</li>
+              <li><strong>D.M.D.P (Dept. of Manpower Development and Placement)</strong> - C.S.S (Computer System Servicing) - 2 Years</li>
+              <li><strong>Self-taught</strong> - HTML, CSS, JS (Mostly Coding) - 6 Months (Coursera, YouTube, GitHub, Online Forum)</li>
+              <li><strong>Continuous Learning</strong> - Participating in online hackathons, tech webinars, and coding challenges</li>
+            </ul>
+            <h4>Experience</h4>
+            <ul>
+              <li>
+                <strong>Senior Web Developer</strong> - WebWorks (2022-Present)
+                <br><span>Lead developer for enterprise web apps, mentoring junior devs, and managing cloud deployments.</span>
+              </li>
+              <li>
+                <strong>Full-Stack Developer</strong> - DevStudio (2019-2022)
+                <br><span>Built and maintained client websites, REST APIs, and e-commerce solutions.</span>
+              </li>
+              <li>
+                <strong>Freelancer</strong> - Various Clients (2020-Present)
+                <br><span>Designed landing pages, fixed bugs, and provided tech support for small businesses and individuals.</span>
+              </li>
+            </ul>
+            <h4>Skills</h4>
+            <ul class="skills-list">
+              <li>PHP</li>
+              <li>JavaScript</li>
+              <li>React</li>
+              <li>Node.js</li>
+              <li>MySQL</li>
+              <li>PostgreSQL</li>
+              <li>Docker</li>
+              <li>Git</li>
+              <li>Agile</li>
+              <li>REST APIs</li>
+              <li>UI/UX Design</li>
+              <li>WordPress</li>
+            </ul>
+            <h4>Certifications</h4>
+            <ul>
+              <li>Certified PHP Developer</li>
+              <li>AWS Certified Cloud Practitioner</li>
+              <li>Responsive Web Design (freeCodeCamp)</li>
+              <li>JavaScript Algorithms and Data Structures (freeCodeCamp)</li>
+            </ul>
+          </div>
+        </section>
+        <!-- PROJECTS SECTION -->
+        <section class="projects-section section-content" id="projects-section" style="display:none;">
+          <h3>Projects</h3>
+          <div class="projects-scroll">
+            <div class="project-card">
+              <h4>Portfolio Website</h4>
+              <p>Personal portfolio built with React and Node.js, featuring dynamic content and responsive design.</p>
+              <div class="project-tags">
+                <span>React</span><span>Node.js</span><span>Responsive</span>
+              </div>
+              <a href="#" class="project-link" target="_blank">View Live</a>
+            </div>
+            <div class="project-card">
+              <h4>E-commerce Platform</h4>
+              <p>Developed a scalable e-commerce platform with payment integration and admin dashboard.</p>
+            </div>
+            <div class="project-card">
+              <h4>Blog CMS</h4>
+              <p>Created a custom content management system for blogging with user authentication and markdown support.</p>
+            </div>
+            <div class="project-card">
+              <h4>Team Chat App</h4>
+              <p>Real-time chat application using Node.js, Socket.io, and MongoDB for team collaboration.</p>
+            </div>
+          </div>
+        </section>
+        <!-- CONTACT SECTION -->
+        <section class="contact-section section-content" id="contact-section" style="display:none;">
+          <h3>Contact Me</h3>
+          <form class="contact-form">
+            <input type="text" placeholder="Your Name" required>
+            <input type="email" placeholder="Your Email" required>
+            <textarea placeholder="Your Message or Email" required></textarea>
+            <button type="submit">Send Message</button>
+          </form>
+          <div class="contact-info">
+            <p><strong>Email:</strong> RomeroJolad@gmail.com</p>
+            <p><strong>Phone:</strong> (+63)/09 </p>
+            <p><strong>Location:</strong> Cebu.Phillippines</p>
+          </div>
+        </section>
+        <!-- SKILLS SECTION (default, always visible on ABOUT) -->
+        <section class="skills-section" id="skills-section">
+          <h3>My <span class="highlight">Skills</span></h3>
+          <div class="skills-grid">
+            <div class="skill-progress">
+              <label>HTML</label>
+              <div class="progress-bar"><div style="width:60%"></div></div>
+            </div>
+            <div class="skill-progress">
+              <label>CSS</label>
+              <div class="progress-bar"><div style="width:30%"></div></div>
+            </div>
+            <div class="skill-progress">
+              <label>JavaScript</label>
+              <div class="progress-bar"><div style="width:10%"></div></div>
+            </div>
+            <div class="skill-progress">
+              <label>Python</label>
+              <div class="progress-bar"><div style="width:10%"></div></div>
+            </div>
+            <div class="skill-progress">
+              <label>UI/UX Design</label>
+              <div class="progress-bar"><div style="width:25%"></div></div>
+            </div>
+            <div class="skill-progress">
+              <label>WordPress</label>
+              <div class="progress-bar"><div style="width:40%"></div></div>
+            </div>
+          </div>
+        </section>
+        <!-- AWARDS SECTION -->
+        <section class="awards-section section-content" id="awards-section" style="display:none;">
+          <h3>My Awards</h3>
+          <div class="awards-gallery">
+            <div class="award-item">
+              <span class="award-label">D.M.D.P AWARD GIVEN</span>
+              <img class="award-img" src="Awards/Award Given.jpg" alt="Award Given">
+            </div>
+            <div class="award-item">
+              <span class="award-label">C.O.E EPERFORMAX</span>
+              <img class="award-img" src="Awards/COE Eperformax.jpg" alt="COE Eperformax">
+            </div>
+            <div class="award-item">
+              <span class="award-label">C.O.E NEW VENTURE SHELL</span>
+              <img class="award-img" src="Awards/COE New Venture Shell.jpg" alt="COE New Venture Shell">
+            </div>
+            <div class="award-item">
+              <span class="award-label">INTERNATIONAL CERTIFICATE </span>
+              <img class="award-img" src="Awards/INC2.jpg" alt="INC2">
+            </div>
+            <div class="award-item">
+              <span class="award-label">NATIONAL CERTIFICATE</span>
+              <img class="award-img" src="Awards/NC 2.jpg" alt="NC 2">
+            </div>
+            <div class="award-item">
+              <span class="award-label">S&R AWARD GIVEN</span>
+              <img class="award-img" src="Awards/S&R Award.jpg" alt="S&R Award">
+            </div>
+            <div class="award-item">
+              <span class="award-label">T.O.R D.M.D.P</span>
+              <img class="award-img" src="Awards/TOR dmdp.jpg" alt="TOR dmdp">
+            </div>
+          </div>
+        </section>
+      </div>
+    </main>
+  </div>
+  <script>
+    // Simple section switching
+    function showSection(section) {
+      const sections = ['about', 'resume', 'projects', 'awards', 'contact'];
+      sections.forEach(s => {
+        const el = document.getElementById(s + '-section');
+        if (el) {
+          if (s === section) {
+            el.style.display = 'block';
+            el.classList.remove('fade-in');
+            void el.offsetWidth;
+            el.classList.add('fade-in');
+            // Animate blog cards if blogs section
+            if (s === 'blogs') {
+              document.querySelectorAll('.blog-card').forEach(card => {
+                card.style.animation = 'none';
+                void card.offsetWidth;
+                card.style.animation = '';
+              });
+            }
+          } else {
+            el.style.display = 'none';
+            el.classList.remove('fade-in');
+          }
+        }
+      });
+      document.getElementById('skills-section').style.display = (section === 'about') ? 'block' : 'none';
+      document.querySelectorAll('.sidebar-btn').forEach((btn, i) => {
+        btn.classList.toggle('active', i === sections.indexOf(section));
+      });
+    }
+    // Enable smooth scrolling for scrollable areas
+    document.querySelectorAll('.resume-scroll, .projects-scroll').forEach(el => {
+      el.style.maxHeight = '300px';
+      el.style.overflowY = 'auto';
+      el.style.scrollBehavior = 'smooth';
+    });
+    document.querySelector('.contact-form').onsubmit = function(e) {
+      e.preventDefault();
+      alert('Thank you for reaching out! I will get back to you soon.');
+      this.reset();
+    };
+  </script>
+</body>
+</html>
