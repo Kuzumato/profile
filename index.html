@@ -4,9 +4,12 @@
           <img class="award-modal-img" id="award-modal-img" src="" alt="Award Image">
           <div class="award-modal-caption" id="award-modal-caption"></div>
         </div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.5/FileSaver.min.js"></script>
   <script>
-    // Award Modal Functionality
+    // Award Modal Functionality, Award Download Dropdown, and Download All Awards
     document.addEventListener('DOMContentLoaded', function() {
+      // Modal
       document.querySelectorAll('.award-item').forEach(function(item) {
         item.addEventListener('click', function() {
           var img = item.querySelector('.award-img');
@@ -26,6 +29,51 @@
       document.getElementById('award-modal').onclick = function(e) {
         if (e.target === this) this.style.display = 'none';
       };
+
+      // Award Download Dropdown
+      var downloadBtn = document.getElementById('award-download-btn');
+      if (downloadBtn) {
+        downloadBtn.onclick = function() {
+          var select = document.getElementById('award-download-select');
+          var file = select.value;
+          if (file) {
+            var link = document.createElement('a');
+            link.href = file;
+            link.download = file.split('/').pop();
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+          } else {
+            alert('Please select an award to download.');
+          }
+        };
+      }
+
+      // Download All Awards
+      var downloadAllBtn = document.getElementById('award-download-all-btn');
+      if (downloadAllBtn) {
+        downloadAllBtn.onclick = async function() {
+          var files = [
+            {name: 'D.M.D.P AWARD GIVEN.jpg', url: 'Awards/Award Given.jpg'},
+            {name: 'C.O.E EPERFORMAX.jpg', url: 'Awards/COE Eperformax.jpg'},
+            {name: 'C.O.E NEW VENTURE SHELL.jpg', url: 'Awards/COE New Venture Shell.jpg'},
+            {name: 'INTERNATIONAL CERTIFICATE.jpg', url: 'Awards/INC2.jpg'},
+            {name: 'NATIONAL CERTIFICATE.jpg', url: 'Awards/NC 2.jpg'},
+            {name: 'S&R AWARD GIVEN.jpg', url: 'Awards/S&R Award.jpg'},
+            {name: 'T.O.R D.M.D.P.jpg', url: 'Awards/TOR dmdp.jpg'}
+          ];
+          var zip = new JSZip();
+          var folder = zip.folder('Jolad_Romero_Awards');
+          var fetches = files.map(f => fetch(f.url).then(r => r.blob()).then(b => folder.file(f.name, b)));
+          try {
+            await Promise.all(fetches);
+            var content = await zip.generateAsync({type: 'blob'});
+            saveAs(content, 'Jolad_Romero_Awards.zip');
+          } catch (e) {
+            alert('Failed to download all awards. Some files may be missing or blocked.');
+          }
+        };
+      }
     });
   </script>
 <!DOCTYPE html>
@@ -66,12 +114,13 @@
             </div>
           </div>
           <div class="profile-actions">
-            <div class="download-dropdown">
+                        <div class="download-dropdown">
               <button class="download-btn">Download Resume</button>
               <div class="dropdown-content">
+
                 <a href="PDS_Form.xlsx" download>Goverment-Resume</a>
                 <a href="#" download>Modern-Resume</a>
-                <A href="APPLIACATION LETTER.docx" download>Application Letter</A>
+                <a href="APPLIACATION LETTER.docx" download>Application Letter</a>
               </div>
             </div>
             <button class="contact-cta" onclick="showSection('contact')"><span>✉️</span> Contact Me</button>
@@ -218,6 +267,22 @@
         </section>
         <!-- AWARDS SECTION -->
         <section class="awards-section section-content" id="awards-section" style="display:none;">
+        <!-- AWARDS DOWNLOAD DROPDOWN -->
+        <div class="awards-download-dropdown" style="margin: 0 auto 24px auto; max-width: 350px; text-align:center;">
+          <button id="award-download-all-btn" class="download-btn" style="padding:8px 18px;margin-left:10px;">Download All Awards</button>
+          <label for="award-download-select" style="color:#00e6d0;font-weight:600;">Download Award:</label>
+          <select id="award-download-select" style="margin:0 10px 0 10px;padding:8px 12px;border-radius:8px;border:1px solid #00e6d0;font-size:1rem;">
+            <option value="">-- Select Award --</option>
+            <option value="Awards/Award Given.jpg">D.M.D.P AWARD GIVEN</option>
+            <option value="Awards/COE Eperformax.jpg">C.O.E EPERFORMAX</option>
+            <option value="Awards/COE New Venture Shell.jpg">C.O.E NEW VENTURE SHELL</option>
+            <option value="Awards/INC2.jpg">INTERNATIONAL CERTIFICATE</option>
+            <option value="Awards/NC 2.jpg">NATIONAL CERTIFICATE</option>
+            <option value="Awards/S&R Award.jpg">S&R AWARD GIVEN</option>
+            <option value="Awards/TOR dmdp.jpg">T.O.R D.M.D.P</option>
+          </select>
+          <button id="award-download-btn" class="download-btn" style="padding:8px 18px;">Download</button>
+        </div>
           <h3>My Awards</h3>
           <div class="awards-gallery">
             <div class="award-item">
